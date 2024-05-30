@@ -4,6 +4,7 @@ Script to create a function 'pascal_triangle(n)' that
 returns a list of lists representing pascal's triangle of n.
 """
 
+
 def pascal_triangle(n):
     """
     Function to return pascal's triangle of n.
