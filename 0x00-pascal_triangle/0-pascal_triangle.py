@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 Script to create a function 'pascal_triangle(n)' that
 returns a list of lists representing pascal's triangle of n.
@@ -8,7 +8,7 @@ def pascal_triangle(n):
     """
     Function to return pascal's triangle of n.
     """
-    
+
     # Check if n is less than or equal to 0
     if n <= 0:
         return []
