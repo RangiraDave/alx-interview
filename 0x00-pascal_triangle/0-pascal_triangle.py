@@ -23,7 +23,8 @@ def pascal_triangle(n):
 
         # Iterate from the second column to the (i-1)th column
         for j in range(1, i):
-            # Calculate the value for the current cell by summing the values from the previous row
+            # Calculate the value for the current cell
+            # by summing the values from the previous row
             cell_value = triangle[i - 1][j - 1] + triangle[i - 1][j]
             # Append the cell value to the current row
             row.append(cell_value)
