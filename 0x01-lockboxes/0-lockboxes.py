@@ -11,6 +11,7 @@ Here is a method to open all the boxes:
 4. Repeat step 2 and 3 until all boxes have been opened
 """
 
+
 def canUnlockAll(boxes):
     """ Method to determine if all the boxes can be opened. """
 
