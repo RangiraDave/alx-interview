@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 def minOperations(n):
     """
     Function that calculates the fewest number of operations needed to
