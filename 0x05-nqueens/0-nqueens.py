@@ -34,6 +34,7 @@ def is_safe(board, row, col):
 
     return True
 
+
 def solve_nqueens(n):
     if not isinstance(n, int):
         print("N must be a number")
@@ -47,7 +48,9 @@ def solve_nqueens(n):
 
     def backtrack(row):
         if row == n:
-            solutions.append([[i, j] for i, j in enumerate(board[row-1]) if j == 1])
+            solutions.append(
+                [[i, j] for i, j in enumerate(board[row-1]) if j == 1]
+                )
             return
 
         for col in range(n):
@@ -60,6 +63,7 @@ def solve_nqueens(n):
 
     for solution in solutions:
         print(solution)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
