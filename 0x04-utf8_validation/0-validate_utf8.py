@@ -4,6 +4,7 @@ Python script to create the method that determines if a given data set
 represents a valid UTF-8 encoding
 """
 
+
 def validUTF8(data):
     """
     Checks if a given list of integers represents a valid UTF-8 encoding.
