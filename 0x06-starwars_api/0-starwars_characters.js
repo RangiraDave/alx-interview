@@ -2,39 +2,33 @@
 
 const request = require('request');
 
-/**
- * Sends a request to retrieve and display the names of characters from a Star Wars movie.
- * @param {string[]} characterList - The list of character URLs.
- * @param {number} index - The index of the current character in the list.
- * @returns {void}
- */
-function sendRequest(characterList, index) {
-    if (characterList.length === index) {
-        return;
-    }
+// Get the movie ID from command line arguments
+const movieId = process.argv[2];
 
-    request(characterList[index], (error, response, body) => {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log(JSON.parse(body).name);
-            sendRequest(characterList, index + 1);
-        }
-    });
-}
+// Construct the URL for the movie API
+const url = `https://swapi-api.alx-tools.com/films/${movieId}`;
 
-/**
- * Retrieves the character list for a given Star Wars movie and calls the sendRequest function.
- * @param {string} movieId - The ID of the Star Wars movie.
- * @returns {void}
- */
-const movieEndpoint = 'https://swapi-api.hbtn.io/api/films/1/';
-request(movieEndpoint, (error, response, body) => {
+// Make a request to the movie API
+request(url, (error, response, body) => {
     if (error) {
-        console.log(error);
+        console.error('Error:', error);
     } else {
-        const characterList = JSON.parse(body).characters;
+        // Parse the response body into a JSON object
+        const film = JSON.parse(body);
+        const characters = film.characters;
 
-        sendRequest(characterList, 0);
+        // Iterate over each character URL
+        characters.forEach((characterUrl) => {
+            // Make a request to the character API
+            request(characterUrl, (error, response, body) => {
+                if (error) {
+                    console.error('Error:', error);
+                } else {
+                    // Parse the response body into a JSON object
+                    const character = JSON.parse(body);
+                    console.log(character.name);
+                }
+            });
+        });
     }
 });
