@@ -1,6 +1,6 @@
-#!/usr/bin/node
-
 const request = require('request');
+
+#!/usr/bin/node
 
 const movieId = process.argv[2];
 
